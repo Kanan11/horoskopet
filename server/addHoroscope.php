@@ -1,10 +1,14 @@
-<?php
-$findBirthDate = (0);
-
-function findBirthDate ($_POST) {
-    if($_POST == 10) {
-        return;
+<?php 
+session_start();
+require './horoscopeList.php';
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['dateOfBirth']) && !isset($_SESSION ['horoscope'])){
+        updateHoroscope($_POST['dateOfBirth'], false);
+        echo json_encode(array('success' => true));
+    } else {
+        echo json_encode(array ('success' => false, 'message' => ''));
     }
-findBirthDate($_POST++);
+} else {
+    echo json_encode(array ('success' => false, 'message' => ''));
 }
 ?>

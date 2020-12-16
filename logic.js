@@ -1,27 +1,54 @@
-window.addEventListener("load", initSite)
-document.getElementById("save").addEventListener("click", setName)
-document.getElementById("update").addEventListener("click", getName)
-/* document.getElementById("clear").addEventListener("click", clearName) */
+function getFormData() {
+    let dateOfBirth = document.getElementById('dateInput').value;
+    data = new FormData();
+    data.set('dateOfBirth', dateOfBirth);
+    return data;
+}
 
-function initSite() {
-	
+function addHoroscope() {
+    fetch ('server/addHoroscope.php', {
+        method: 'POST',
+        body: getFormData()
+    }).then((response) => {
+        return response.json()
+    }).then((data) => {
+        viewHoroscope();
+        console.log(data)
+    }).catch ((err) => {
+        console.log ('Error:', err)
+    })
 }
-function setName() {
-	
+
+function viewHoroscope() {
+    fetch('server/viewHoroscope.php', {
+        method: 'GET'
+    }).then((response) => response.json())
+    .then((json) => {
+        let showHoroscope = document.getElementById('showHoroscope');
+        showHoroscope.innerText = json;
+        console.log(showHoroscope);
+    })
 }
-async function getName() {
-	const collectedName = await makeRequest("./server/requestHandler.php", "GET")
-	console.log(collectedName)
+
+function updateHoroscope() {
+    fetch('server/updateHoroscope.php', {
+        method: 'POST',
+        body: getFormData()
+    }).then((response) => {
+        return response.json()
+    }).then((data) => {
+        viewHoroscope();
+        console.log(data);
+    })
 }
-async function makeRequest(path, method, body) {
-	try {
-	const response = await fetch(path, {
-		method,
-		body
-		})
-	console.log(response)
-	return response.json()
-	} catch(err) {
-		console.log(err)
-	}
+
+function deleteHoroscope() {
+    fetch('server/deleteHoroscope.php', {
+        method: 'DELETE'
+    }).then((response) => {
+        return response.json()
+    }).then((data) => {
+        viewHoroscope();
+        console.log(data)
+    })
 }

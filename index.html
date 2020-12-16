@@ -3,15 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Horoskopet</title>
-    <script defer src="./logic.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Horoskop</title>
+    <script src="logic.js"></script>    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <input id="input" placeholder="your birth date" type="text">
-    <button id="save">spara</button>
-    <button id="update">uppdatera</button>
-    <button id="clear">radera</button>
-	<h1 id="nameText"></h1>
+<div id="main">
+        <input id="dateInput" type="date"></input><br>
+        <button id="save" type="button" onClick="addHoroscope()">Spara</button>
+        <button id="update" type="button" onClick="updateHoroscope()">Uppdatera</button>
+        <button id="clear" type="button" onClick="deleteHoroscope()">Radera</button>
+        <div id="showHoroscope"></div>
+</div>
+<footer>
+    &copy; Copyright by WIE20G Medieinstitutet 2020-2022
+</footer>
 </body>
 </html>

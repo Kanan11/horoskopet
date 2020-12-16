@@ -1,10 +1,61 @@
-/* #save{
+#save {
     border-radius: 8px;
     height: 45px;
     font-size: 20px;
+    margin: 5px;
+    color: whitesmoke;
+    background-color: darkcyan;
+}
+#dateInput{
+    border-radius: 8px;
+    height: 45px;
+    font-size: 20px;
+    margin: 5px;
+    color: darkcyan;
+    margin-top:  200px;
+}
+#clear{
+    border-radius: 8px;
+    height: 45px;
+    font-size: 20px;
+    margin: 5px;
+    color: whitesmoke;
+    background-color: darkcyan;
+}
+#update{
+    border-radius: 8px;
+    height: 45px;
+    font-size: 20px;
+    margin: 5px;
+    color: whitesmoke;
+    background-color: darkcyan;
+}
+#main {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
-    border: none;
-    padding: 8px;
-} */
+    flex-direction: column;
+    align-content: center;
+}
+
+body {
+    background-image: url("bk_gr.gif");
+    background-repeat: no-repeat;
+    background-size: 900px 700px;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+#showHoroscope {
+font-size: 70px;
+color: whitesmoke;
+}
+
+footer {
+    font-size: 20px;
+    color: whitesmoke; 
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width:100%;
+}
